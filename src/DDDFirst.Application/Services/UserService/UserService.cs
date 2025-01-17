@@ -1,4 +1,4 @@
-﻿using CSharpFunctionalExtensions;
+using CSharpFunctionalExtensions;
 using DDDFirst.Domain.Entities;
 using DDDFirst.Domain.Errors;
 using DDDFirst.Domain.Interfaces.Utils;
@@ -32,6 +32,7 @@ namespace DDDFirst.Application.Services.UserService
             var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == emailValue.Value);
             if (user != null)
             {
+                // TODO: 這邊的Error感覺可以在Service新增，這樣才不會跟Domain綁在一起
                 return Result.Failure(UserErrors.UserAlreadyExists);
             }
 
