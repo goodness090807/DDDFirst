@@ -23,7 +23,7 @@ namespace DDDFirst.Domain.ValueObjects
             }
             if (!IsValidEmail(value))
             {
-                return Result.Failure<Email>(CommonErrors.EmailError);
+                return Result.Failure<Email>(UserErrors.EmailError);
             }
             return Result.Success(new Email(value));
         }

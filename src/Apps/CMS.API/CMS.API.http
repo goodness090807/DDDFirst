@@ -1,6 +1,6 @@
-@CMS.API_HostAddress = http://localhost:5236
+@CMS.API_HostAddress = https://localhost:5001
 
-GET {{CMS.API_HostAddress}}/weatherforecast/
+GET {{CMS.API_HostAddress}}/api/users/
 Accept: application/json
 
 ###

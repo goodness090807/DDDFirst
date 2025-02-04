@@ -24,6 +24,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MQs", "MQs", "{D93E3F90-3644-4E35-A82C-DCA4B85D171F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationReceiver", "src\MQs\NotificationReceiver\NotificationReceiver.csproj", "{3971C37B-A7A1-43A9-8019-A643C972B70C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +54,10 @@ Global
 		{35768616-0057-4AC4-9F2D-CFEE4A1EC5F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35768616-0057-4AC4-9F2D-CFEE4A1EC5F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35768616-0057-4AC4-9F2D-CFEE4A1EC5F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3971C37B-A7A1-43A9-8019-A643C972B70C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3971C37B-A7A1-43A9-8019-A643C972B70C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3971C37B-A7A1-43A9-8019-A643C972B70C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3971C37B-A7A1-43A9-8019-A643C972B70C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,5 +69,7 @@ Global
 		{754B9712-E452-4852-A01C-198BBBDF7681} = {ADA1DF74-F9F6-4275-B4C0-974738576293}
 		{6A3715AD-0747-4FAF-8F07-6AA83EC299B2} = {ADA1DF74-F9F6-4275-B4C0-974738576293}
 		{35768616-0057-4AC4-9F2D-CFEE4A1EC5F5} = {6A3715AD-0747-4FAF-8F07-6AA83EC299B2}
+		{D93E3F90-3644-4E35-A82C-DCA4B85D171F} = {ADA1DF74-F9F6-4275-B4C0-974738576293}
+		{3971C37B-A7A1-43A9-8019-A643C972B70C} = {D93E3F90-3644-4E35-A82C-DCA4B85D171F}
 	EndGlobalSection
 EndGlobal

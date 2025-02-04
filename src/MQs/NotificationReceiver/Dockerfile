@@ -1,30 +1,28 @@
 # 請參閱 https://aka.ms/customizecontainer 了解如何自訂您的偵錯容器，以及 Visual Studio 如何使用此 Dockerfile 來組建您的映像，以加快偵錯速度。
 
 # 此階段用於以快速模式從 VS 執行時 (偵錯設定的預設值)
-FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
+FROM mcr.microsoft.com/dotnet/runtime:9.0 AS base
 USER $APP_UID
 WORKDIR /app
-EXPOSE 5000
-EXPOSE 5001
 
 
 # 此階段是用來組建服務專案
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["src/Apps/CMS.API/CMS.API.csproj", "src/Apps/CMS.API/"]
-RUN dotnet restore "./src/Apps/CMS.API/CMS.API.csproj"
+COPY ["src/MQs/NotificationReceiver/NotificationReceiver.csproj", "src/MQs/NotificationReceiver/"]
+RUN dotnet restore "./src/MQs/NotificationReceiver/NotificationReceiver.csproj"
 COPY . .
-WORKDIR "/src/src/Apps/CMS.API"
-RUN dotnet build "./CMS.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/src/MQs/NotificationReceiver"
+RUN dotnet build "./NotificationReceiver.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # 此階段可用來發佈要複製到最終階段的服務專案
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./CMS.API.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./NotificationReceiver.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 # 此階段用於生產環境，或以一般模式從 VS 執行時 (未使用偵錯設定時的預設值)
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "CMS.API.dll"]
+ENTRYPOINT ["dotnet", "NotificationReceiver.dll"]

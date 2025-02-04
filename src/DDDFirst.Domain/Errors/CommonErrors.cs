@@ -8,10 +8,5 @@ namespace DDDFirst.Domain.Errors
         /// 值為空或Null
         /// </summary>
         public static readonly string ValueIsNullOrEmpty = "Common.ValueIsNullOrEmpty";
-
-        /// <summary>
-        /// Email格式錯誤
-        /// </summary>
-        public static readonly string EmailError = "Common.EmailError";
     }
 }

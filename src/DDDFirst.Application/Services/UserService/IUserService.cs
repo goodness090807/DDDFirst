@@ -2,7 +2,7 @@
 
 namespace DDDFirst.Application.Services.UserService
 {
-    public interface IUserService
+    public interface IUserService : IAutoRegister
     {
         Task<Result> RegisterAsync(string name, string email, string password);
     }
